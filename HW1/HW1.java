@@ -337,9 +337,13 @@ public class HW1 {
 						}
 						z.close();
 						int max = 0;
+						
+						
+						
+				//Simple Function Written near bottom	
 				//4
 						
-						x = new FileWriter(Output_File + "_" + Integer.toString(4) + ".txt");
+					/*	x = new FileWriter(Output_File + "_" + Integer.toString(4) + ".txt");
 						z = new BufferedWriter(x);
 						max = 0;
 						for(int i = 0; i < Sentences.size(); i++) {
@@ -505,33 +509,42 @@ public class HW1 {
 							}
 							}
 						}
-						z.close();
+						z.close();*/
+						
+						//Easy do-er for 4-9
 				
-		/*
-		arraylist sentences
-			object sentence
-				arraylist words
-				get word
-				arraylist wordfrequency
-				get wordfrequency
-				string sentence
-				
-		foreach word in ["the", "of", "was", 'But the", "it was"]
-		for each special word
-			this special word coutn
-			list of sentences with this occurance
-			
-			find max occurance of this word in all of the 
-			int this_freq
-			
-			println("Count for word {} is {} in these sentences:".format(word, this_freq))
-			for each sentence:
-				print sentence and count
-			
-			*/
+						for(int p = 4; p < 10; p++) {
+							String wrd = SpecialWords.get(p - 4);
+							x = new FileWriter(Output_File + "_" + p + ".txt");
+							z = new BufferedWriter(x);
+							max = 0;
+							for(int i = 0; i < Sentences.size(); i++) {
+								for(int j = 0; j < Sentences.get(i).getArrLen(); j++) {
+									if(Sentences.get(i).getWord(j).equals(wrd)){
+										if(Sentences.get(i).getWordFrequency(j) > max) {
+											max = Sentences.get(i).getWordFrequency(j);
+										}
+									}
+								}
+							}
+							for(int i = 0; i < Sentences.size(); i++) {
+								if (max == 0) {
+									z.write(wrd + max + ":" + Sentences.get(i).getSentence());
+									z.newLine();
+								} else {
+								for(int j = 0; j < Sentences.get(i).getArrLen(); j++) {
+									if(Sentences.get(i).getWord(j).equals(wrd) && Sentences.get(i).getWordFrequency(j) == max){
+										z.write(wrd + max + ":" + Sentences.get(i).getSentence());
+										z.newLine();
+									}
+								}}
+							}
+							z.close();
+						}
 			
 		reader.close();
 		
+		//debugger
 		/*for(int ii = 0; ii < Words.size(); ii++) {
 			if(WordCount.get(ii) > 6) {
 				System.out.printf("%s: %d\n", Words.get(ii), WordCount.get(ii));
