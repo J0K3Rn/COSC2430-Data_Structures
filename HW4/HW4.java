@@ -111,31 +111,30 @@ public class HW4 {
 			theFile.write(Disk + " " + first + " " + last);
 			theFile.newLine();
 		}
-		if(Disk == 2) {
-			
-		}
 
 		//				 first middle1 middle2 middle3  last
 		Hanoi5(Disk - 3, first, last, middle3, middle2, middle1, theFile);
 		
-		//So doesn't print 0's
 		if(Disk >= 3) {
 			//System.out.println(Disk - 2 + " " + first + " " + middle2);
 			theFile.write(Disk - 2 + " " + first + " " + middle2);
 			theFile.newLine();
 		}
 		
-		//System.out.println(Disk - 1 + " " + first + " " + middle3);
-		theFile.write(Disk - 1 + " " + first + " " + middle3);
-		theFile.newLine();
-		//System.out.println(Disk + " " + first + " " + last);
-		theFile.write(Disk + " " + first + " " + last);
-		theFile.newLine();
-		//System.out.println(Disk - 1 + " " + middle3 + " " + last);
-		theFile.write(Disk - 1 + " " + middle3 + " " + last);
-		theFile.newLine();
+		if(Disk >= 2) {
+			//System.out.println(Disk - 1 + " " + first + " " + middle3);
+			theFile.write(Disk - 1 + " " + first + " " + middle3);
+			theFile.newLine();
+
+			//System.out.println(Disk + " " + first + " " + last);
+			theFile.write(Disk + " " + first + " " + last);
+			theFile.newLine();
+			
+			//System.out.println(Disk - 1 + " " + middle3 + " " + last);
+			theFile.write(Disk - 1 + " " + middle3 + " " + last);
+			theFile.newLine();
+		}
 		
-		//So doesn't print 0's
 		if(Disk >= 3) {
 			//System.out.println(Disk - 2 + " " + middle2 + " " + last);
 			theFile.write(Disk - 2 + " " + middle2 + " " + last);
