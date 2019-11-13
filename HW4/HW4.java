@@ -20,7 +20,7 @@ public class HW4 {
 		
 		
 		if(num_Pegs == 3) {
-			Hanoi3(num_Pegs, 'A', 'B', 'C', theFile);
+			Hanoi3(num_Disks, 'A', 'B', 'C', theFile);
 		} else if(num_Pegs == 4) {
 			Hanoi4(num_Disks, 'A', 'B', 'C', 'D', theFile);
 		} else if(num_Pegs == 5) {
@@ -70,7 +70,7 @@ public class HW4 {
 	public static void Hanoi4(int Disk, char first, char middle1, char middle2, char last, BufferedWriter theFile) throws IOException {
 		
 		//When there is no disk
-		if(Disk == 0) {
+		if(Disk <= 0) {
 			return;
 		}
 		
@@ -83,16 +83,19 @@ public class HW4 {
 		
 		//				first  middle1 middle2 last
 		Hanoi4(Disk - 2, first, last, middle2, middle1, theFile);
-		
-		//System.out.println(Disk - 1 + " " + first + " " + middle2);
-		theFile.write(Disk - 1 + " " + first + " " + middle2);
-		theFile.newLine();
-		//System.out.println(Disk + " " + first + " " + last);
-		theFile.write(Disk + " " + first + " " + last);
-		theFile.newLine();
-		//System.out.println(Disk - 1 + " " + middle2 + " " + last);
-		theFile.write(Disk - 1 + " " + middle2 + " " + last);
-		theFile.newLine();
+		if(Disk >= 2) {
+			//System.out.println(Disk - 1 + " " + first + " " + middle2);
+			theFile.write(Disk - 1 + " " + first + " " + middle2);
+			theFile.newLine();
+		//}
+			//System.out.println(Disk + " " + first + " " + last);
+			theFile.write(Disk + " " + first + " " + last);
+			theFile.newLine();
+		//if(Disk >= 2) {
+			//System.out.println(Disk - 1 + " " + middle2 + " " + last);
+			theFile.write(Disk - 1 + " " + middle2 + " " + last);
+			theFile.newLine();
+		}
 		
 		//				 first    middle1 middle2 last
 		Hanoi4(Disk - 2, middle1, middle2, first, last, theFile);
